@@ -51,17 +51,15 @@ jobs:
         pipenv install
     - uses: actions/checkout@v2
 
-    - name: Test env vars for python
-      run: |
-        EMAIL_SECRET=${{ secrets.SINGIN_EMAIL_SECRET }} python -c 'import os;print(os.environ['EMAIL_SECRET'])
-        PASSWORD_SECRET=${{ secrets.SINGIN_PASSWORD_SECRET }} python -c 'import os;print(os.environ['PASSWORD_SECRET'])
+#    - name: Test env vars for python
+#      run: |
+#        EMAIL_SECRET=${{ secrets.SINGIN_EMAIL_SECRET }} python -c 'import os;print(os.environ['EMAIL_SECRET'])
+#        PASSWORD_SECRET=${{ secrets.SINGIN_PASSWORD_SECRET }} python -c 'import os;print(os.environ['PASSWORD_SECRET'])
 
     - name: Test with pytest
       id: test
       run: |
-        pytest --alluredir=./allure-results test_function
-#      env:
-#       DISPLAY: :99
+        EMAIL_SECRET=${{ secrets.SINGIN_EMAIL_SECRET }} pytest --alluredir=./allure-results test_function
 
     - name: Get Allure history
       uses: actions/checkout@v2
