@@ -7,9 +7,9 @@ on:
   schedule:
     - cron: "15 6 * * *"
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
 #  sending-email:
