@@ -1,0 +1,7 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Mon Aug 29 16:32:53 GMT 2022","Mon Aug 29 16:32:56 GMT 2022","2931","test_function.test_filters","test_1_filters","","","","1) Фильтр по ""Sale price""",""
+"passed","Mon Aug 29 16:32:41 GMT 2022","Mon Aug 29 16:32:51 GMT 2022","10098","test_function.test_filters","test_1_filters","","","","1) Фильтр по ""Sale price""",""
+"passed","Mon Aug 29 16:32:51 GMT 2022","Mon Aug 29 16:32:53 GMT 2022","2342","test_function.test_filters","test_1_filters","","","","1) Фильтр по ""Sale price""",""
+"passed","Mon Aug 29 16:32:40 GMT 2022","Mon Aug 29 16:32:41 GMT 2022","1176","test_function.test_filters","test_1_filters","","","","1) Фильтр по ""Sale price""",""
+"passed","Mon Aug 29 16:32:39 GMT 2022","Mon Aug 29 16:32:40 GMT 2022","1130","test_function.test_filters","test_1_filters","","","","1) Фильтр по ""Sale price""",""
+"passed","Mon Aug 29 16:32:30 GMT 2022","Mon Aug 29 16:32:39 GMT 2022","8602","test_function.test_filters","test_1_filters","","","","1) Фильтр по ""Sale price""",""
