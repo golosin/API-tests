@@ -1,0 +1,194 @@
+fragment ListFieldInfo on ListFieldInfoType {
+  name
+  title
+  helpText
+  sortable
+  __typename
+}
+
+fragment PredictionFragment on PredictionType {
+  value
+  label
+  percentage
+  __typename
+}
+
+fragment ValueFragment on ValueType {
+  value
+  label
+  __typename
+}
+
+fragment AttrsFragment on AttrsType {
+  value
+  key
+  __typename
+}
+
+fragment Widget on WidgetType {
+  name
+  type
+  initialValue
+  additionalData {
+    attrs {
+      ...AttrsFragment
+      __typename
+    }
+    __typename
+  }
+  isRequired
+  isMultiple
+  isDisabled
+  isNonEmpty
+  description
+  attrs {
+    ...AttrsFragment
+    __typename
+  }
+  options {
+    ...ValueFragment
+    __typename
+  }
+  predictions {
+    ...PredictionFragment
+    __typename
+  }
+  subwidgets {
+    name
+    type
+    initialValue
+    isRequired
+    isDisabled
+    attrs {
+      ...AttrsFragment
+      __typename
+    }
+    options {
+      ...ValueFragment
+      __typename
+    }
+    predictions {
+      ...PredictionFragment
+      __typename
+    }
+    __typename
+  }
+  __typename
+}
+
+fragment FormField on FormFieldType {
+  name
+  label
+  helpText
+  errors
+  widget {
+    ...Widget
+    __typename
+  }
+  __typename
+}
+
+fragment ProductListPageInfo on ProductsListPageInfoType {
+  total
+  fields {
+    ...ListFieldInfo
+    __typename
+  }
+  filters {
+    ...FormField
+    __typename
+  }
+  tagsForm {
+    ...FormField
+    __typename
+  }
+  __typename
+}
+
+fragment Attribute on AttributeType {
+  name
+  value
+  __typename
+}
+
+fragment SourceReduced on SourceReducedType {
+  id
+  name
+  type
+  __typename
+}
+
+fragment RuleData on RuleDataType {
+  ruleId
+  name
+  isDefault
+  __typename
+}
+
+fragment Product on ProductType {
+  uid
+  tags
+  id
+  images
+  name
+  url
+  price
+  salePrice
+  currency
+  stock
+  brand
+  category
+  categoryId
+  categoryPath {
+    name
+    id
+    parentId
+    __typename
+  }
+  marketplaceId
+  source {
+    ...SourceReduced
+    __typename
+  }
+  priceAndStockRule {
+    ...RuleData
+    __typename
+  }
+  businessPolicyRule {
+    ...RuleData
+    __typename
+  }
+  skusCount
+  state
+  attributes {
+    ...Attribute
+    __typename
+  }
+  logistics {
+    ...Attribute
+    __typename
+  }
+  created
+  updated
+  __typename
+}
+
+query products($pipelineId: ID!, $filters: ProductsFilterFormInput, $sort: SortInput, $slice: SliceInput!, $representation: RepresentationProductsEnum!) {
+  products(
+    pipelineId: $pipelineId
+    slice: $slice
+    filters: $filters
+    sort: $sort
+    representation: $representation
+  ) {
+    pageInfo {
+      ...ProductListPageInfo
+      __typename
+    }
+    items {
+      ...Product
+      __typename
+    }
+    __typename
+  }
+}
