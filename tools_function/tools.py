@@ -28,7 +28,7 @@ def get_app_version():
     body = ''.join(x)
 
     headers = {"Content-Type": "application/json; charset=utf-8",
-               "authorization": "JWT " + get_singIn("secret", "secret")}
+               "authorization": "JWT " + get_singIn(os.environ['EMAIL_SECRET'], os.environ['PASSWORD_SECRET'])}
     url = get_url()
     response = requests.post(url, headers=headers, json={'query': body})
     response_body = response.json()
