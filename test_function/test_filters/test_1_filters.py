@@ -34,7 +34,7 @@ def test_get_filters_products(action, representation, sale_price_min, sale_price
     body = ''.join(x)
 
     headers = {"Content-Type": "application/json; charset=utf-8",
-               "authorization": "JWT " + get_singIn("testadmin@t4mp.com", "9hm2wAg8rDzP2kn")}
+               "authorization": "JWT " + get_singIn("secret", "secret")}
     url = get_url()
     response = requests.post(url, headers=headers, json={'operationName': "products",
                                                          'variables': {
