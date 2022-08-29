@@ -2,6 +2,8 @@ import pytest
 from tools_function.tools import *
 import allure
 
+email = os.environ['EMAIL_SECRET']
+password = os.environ['PASSWORD_SECRET']
 
 def get_check_price(items_product, sale_price_min, sale_price_max):
     count = 0
@@ -34,7 +36,7 @@ def test_get_filters_products(action, representation, sale_price_min, sale_price
     body = ''.join(x)
 
     headers = {"Content-Type": "application/json; charset=utf-8",
-               "authorization": "JWT " + get_singIn(os.environ['EMAIL_SECRET'], os.environ['PASSWORD_SECRET'])}
+               "authorization": "JWT " + get_singIn(email, password)}
     url = get_url()
     response = requests.post(url, headers=headers, json={'operationName': "products",
                                                          'variables': {

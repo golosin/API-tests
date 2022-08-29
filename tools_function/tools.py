@@ -1,6 +1,8 @@
 import requests
 import os
 
+email = os.environ['EMAIL_SECRET']
+password = os.environ['PASSWORD_SECRET']
 
 # получение url тестируемого стенда
 def get_url():
@@ -28,7 +30,7 @@ def get_app_version():
     body = ''.join(x)
 
     headers = {"Content-Type": "application/json; charset=utf-8",
-               "authorization": "JWT " + get_singIn(os.environ['EMAIL_SECRET'], os.environ['PASSWORD_SECRET'])}
+               "authorization": "JWT " + get_singIn(email, password)}
     url = get_url()
     response = requests.post(url, headers=headers, json={'query': body})
     response_body = response.json()
