@@ -9,8 +9,10 @@ def get_url():
 
 # SingIn (авторизация и получение токена)
 def get_singIn():
-    email = os.environ['EMAIL_SECRET']
-    password = os.environ['PASSWORD_SECRET']
+    # email = os.environ['EMAIL_SECRET']
+    # password = os.environ['PASSWORD_SECRET']
+    email = 'testadmin@t4mp.com'
+    password = '9hm2wAg8rDzP2kn'
 
     x = open(os.path.join(r"query", "mutation SignInMutation.txt"))
     body = ''.join(x)
