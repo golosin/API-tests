@@ -1,0 +1,29 @@
+
+Тестовые данные: salePrice
+min = 100 , max = None
+Результат по фильтру: FEED
+1 salePrice = 2770.0
+2 salePrice = 31483.0
+3 salePrice = 3650.0
+4 salePrice = 35570.0
+5 salePrice = 4350.0
+6 salePrice = 4800.0
+7 salePrice = 1990.0
+8 salePrice = 7700.0
+9 salePrice = 1850.0
+10 salePrice = 3650.0
+11 salePrice = 7820.0
+12 salePrice = 4700.0
+13 salePrice = 3650.0
+14 salePrice = 4350.0
+15 salePrice = 3540.0
+16 salePrice = 3650.0
+17 salePrice = 9880.0
+18 salePrice = 8590.0
+19 salePrice = 1990.0
+20 salePrice = 7700.0
+21 salePrice = 2900.0
+22 salePrice = 4350.0
+23 salePrice = 3540.0
+24 salePrice = 7700.0
+25 salePrice = 2800.0
