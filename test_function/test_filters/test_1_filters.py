@@ -1,7 +1,7 @@
 import pytest
 from tools_function.tools import *
 import allure
-from github import Github
+
 
 email = os.environ['EMAIL_SECRET']
 password = os.environ['PASSWORD_SECRET']
@@ -33,8 +33,7 @@ def get_check_price(items_product, sale_price_min, sale_price_max):
                          [('price', 100, 100), ('price', None, 100), ('price', 100, None)])
 @pytest.mark.parametrize("representation", ["FEED", "WILDBERRIES"])
 def test_get_filters_products(action, representation, sale_price_min, sale_price_max):
-    print(1,  Github(email))
-    print(2, Github(password))
+    print(1, email)
     # x = open(os.path.join(r"query", "query products (filters).txt"))
     # body = ''.join(x)
     #
