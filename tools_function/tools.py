@@ -26,12 +26,13 @@ def get_singIn(email, password):
 
 # Версия билда
 def get_app_version():
-    x = open(os.path.join(r"query", "query appVersion.txt"))
-    body = ''.join(x)
-
-    headers = {"Content-Type": "application/json; charset=utf-8",
-               "authorization": "JWT " + get_singIn(email, password)}
-    url = get_url()
-    response = requests.post(url, headers=headers, json={'query': body})
-    response_body = response.json()
-    return response_body['data']['appVersion']['appVersion']
+    return 0
+    # x = open(os.path.join(r"query", "query appVersion.txt"))
+    # body = ''.join(x)
+    #
+    # headers = {"Content-Type": "application/json; charset=utf-8",
+    #            "authorization": "JWT " + get_singIn(email, password)}
+    # url = get_url()
+    # response = requests.post(url, headers=headers, json={'query': body})
+    # response_body = response.json()
+    # return response_body['data']['appVersion']['appVersion']
