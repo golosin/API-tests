@@ -54,9 +54,7 @@ jobs:
     - name: Test with pytest
       id: test
       run: |
-        EMAIL_SECRET=${{ secrets.GMAIL_LOGIN }} pytest --alluredir=./allure-results test_function
-
-#    EMAIL_SECRET=${{ secrets.SINGIN_EMAIL_SECRET }} PASSWORD_SECRET=${{ secrets.SINGIN_PASSWORD_SECRET }}
+        EMAIL_SECRET=${{ secrets.SIGNIN_T4_EMAIL_SECRET }} PASSWORD_SECRET=${{ secrets.SIGNIN_T4_PASSWORD_SECRET }} pytest --alluredir=./allure-results test_function
 
     - name: Get Allure history
       uses: actions/checkout@v2
