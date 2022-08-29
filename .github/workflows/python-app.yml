@@ -54,7 +54,7 @@ jobs:
     - name: Test with pytest
       id: test
       run: |
-        pytest --alluredir=./allure-results test_t4
+        pytest --alluredir=./allure-results test_function
 #      env:
 #       DISPLAY: :99
 
