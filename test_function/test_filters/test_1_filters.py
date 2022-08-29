@@ -32,8 +32,8 @@ def get_check_price(items_product, sale_price_min, sale_price_max):
                          [('price', 100, 100), ('price', None, 100), ('price', 100, None)])
 @pytest.mark.parametrize("representation", ["FEED", "WILDBERRIES"])
 def test_get_filters_products(action, representation, sale_price_min, sale_price_max):
-    print(email)
-    print(password)
+    print(1, email)
+    print(2, password)
     # x = open(os.path.join(r"query", "query products (filters).txt"))
     # body = ''.join(x)
     #
