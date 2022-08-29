@@ -1,8 +1,8 @@
 import requests
 import os
 
-email = os.environ['EMAIL_SECRET']
-password = os.environ['PASSWORD_SECRET']
+# email = os.environ['EMAIL_SECRET']
+# password = os.environ['PASSWORD_SECRET']
 
 # получение url тестируемого стенда
 def get_url():
