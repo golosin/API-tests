@@ -18,7 +18,7 @@ jobs:
 #    if: always()
 #    steps:
 #      - run: |
-#          echo "<h1> Выполнились автотесты  </h1> <div> <h2><a href="https://golosin.github.io/python_test/">ссылка на отчет</a></h2></div>" > temp.html
+#          echo "<h1> Выполнились автотесты  </h1> <div> <h2><a href="https://golosin.github.io/test_function/">ссылка на отчет</a></h2></div>" > temp.html
 #      - name: Send email, test report
 #        uses: dawidd6/action-send-mail@v3
 #        with:
@@ -50,22 +50,13 @@ jobs:
         pip install pipenv
         pipenv install
     - uses: actions/checkout@v2
-    - uses: nanasess/setup-chromedriver@v1
-#      with:
-      # Optional: do not specify to match Chrome's version
-#        chromedriver-version: '101.0.4951.41'
-    - run: |
-        google-chrome --version
-        export DISPLAY=:99
-        chromedriver --whitelisted-ips="" --url-base=/wd/hub &
-        sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
 
     - name: Test with pytest
       id: test
       run: |
-        pytest --alluredir=./allure-results test_function
-#      env:
-#       DISPLAY: :99
+        EMAIL_SECRET=${{ secrets.SINGIN_EMAIL_SECRET }} PASSWORD_SECRET=${{ secrets.SINGIN_PASSWORD_SECRET }} pytest --alluredir=./allure-results test_function
+
+#    EMAIL_SECRET=${{ secrets.SINGIN_EMAIL_SECRET }} PASSWORD_SECRET=${{ secrets.SINGIN_PASSWORD_SECRET }}
 
     - name: Get Allure history
       uses: actions/checkout@v2
