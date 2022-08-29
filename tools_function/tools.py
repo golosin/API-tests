@@ -26,7 +26,7 @@ def get_singIn(email, password):
 
 # Версия билда
 def get_app_version():
-    return 0
+    return '0'
     # x = open(os.path.join(r"query", "query appVersion.txt"))
     # body = ''.join(x)
     #
