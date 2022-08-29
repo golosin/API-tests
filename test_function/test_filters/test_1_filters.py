@@ -4,7 +4,7 @@ import allure
 
 
 email = os.environ['EMAIL_SECRET']
-password = os.environ['PASSWORD_SECRET']
+# password = os.environ['PASSWORD_SECRET']
 
 def get_check_price(items_product, sale_price_min, sale_price_max):
     count = 0
