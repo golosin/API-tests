@@ -18,7 +18,7 @@ jobs:
     if: always()
     steps:
       - run: |
-          echo "<h1> Выполнились автотесты  </h1> <div> <h2><a href="https://golosin.github.io/test_function/">ссылка на отчет</a></h2></div>" > temp.html
+          echo "<h1> API - автотесты :  </h1> <div> <h2><a href="https://golosin.github.io/API-tests/">ссылка на отчет</a></h2></div>" > temp.html
       - name: Send email, test report
         uses: dawidd6/action-send-mail@v3
         with:
