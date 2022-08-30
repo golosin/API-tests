@@ -1,0 +1,29 @@
+
+Тестовые данные: stock
+min = None , max = 2
+Результат по фильтру: FEED
+1 stock = 0
+2 stock = 0
+3 stock = 0
+4 stock = 0
+5 stock = 0
+6 stock = 0
+7 stock = 0
+8 stock = 0
+9 stock = 0
+10 stock = 0
+11 stock = 0
+12 stock = 0
+13 stock = 0
+14 stock = 0
+15 stock = 0
+16 stock = 0
+17 stock = 0
+18 stock = 0
+19 stock = 0
+20 stock = 0
+21 stock = 0
+22 stock = 0
+23 stock = 0
+24 stock = 0
+25 stock = 0

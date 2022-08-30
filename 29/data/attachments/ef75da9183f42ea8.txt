@@ -1,0 +1,6 @@
+
+Тестовые данные: stock
+min = 2 , max = 2
+Результат по фильтру: WILDBERRIES
+1 stock = 2
+2 stock = 2
