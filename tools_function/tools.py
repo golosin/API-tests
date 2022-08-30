@@ -36,3 +36,25 @@ def get_app_version():
     response = requests.post(url, headers=headers, json={'query': body})
     response_body = response.json()
     return response_body['data']['appVersion']['appVersion']
+
+
+def get_check_filters_min_max(items_product, type, min_value, max_value, representation):
+    count = 0
+    print()
+    print('Тестовые данные:', type)
+    print('min =', min_value, ',', 'max =', max_value)
+    print('Результат по фильтру: ' + representation)
+    for product in items_product:
+        if min_value != None and max_value != None:
+            count += 1
+            print(count, type, '=', product[type])
+            assert float(product[type]) >= float(min_value) and float(product[type]) <= float(max_value), \
+                'проверка ' + type
+        elif min_value != None:
+            count += 1
+            print(count, type, '=', product[type])
+            assert float(product[type]) >= float(min_value), 'проверка ' + type
+        elif max_value != None:
+            count += 1
+            print(count, type, '=', product[type])
+            assert float(product[type]) <= float(max_value), 'проверка ' + type
