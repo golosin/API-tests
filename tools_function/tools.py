@@ -12,6 +12,7 @@ def get_singIn():
     email = os.environ['EMAIL_SECRET']
     password = os.environ['PASSWORD_SECRET']
 
+
     x = open(os.path.join(r"query", "mutation SignInMutation.txt"))
     body = ''.join(x)
 
