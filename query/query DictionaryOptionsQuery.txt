@@ -1,0 +1,17 @@
+query DictionaryOptionsQuery($pipelineId: ID!, $token: String!, $slice: DictionarySliceInput, $params: DictionaryInput) {
+  dictionaryOptions(
+    pipelineId: $pipelineId
+    token: $token
+    slice: $slice
+    params: $params
+  ) {
+    value
+    label
+    params {
+      parentId
+      isFinal
+      __typename
+    }
+    __typename
+  }
+}

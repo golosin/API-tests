@@ -2,16 +2,15 @@ import pytest
 from tools_function.tools import *
 import allure
 
-
 # Для фильтров "Feed Products" и "Published on marketplace"
 @allure.epic('Тест стенд v.'+get_app_version())
 @allure.feature('Фильтры')
-@allure.story('Фильтр по "Stock')
-@allure.title('Stock')
+@allure.story('Фильтр по "Image"')
+@allure.title('Images')
 @allure.severity('critical')
-@pytest.mark.parametrize("stock_min, stock_max", [(2, 2), (None, 2), (2, None)])
+@pytest.mark.parametrize("images", ["true", "false"])
 @pytest.mark.parametrize("representation", ["FEED", "WILDBERRIES"])
-def test_get_filters_stock_feed_pm(representation, stock_min, stock_max):
+def test_get_filters_image_feed_pm(representation, images):
 
     x = open(os.path.join(r"query", "query products.txt"))
     body = ''.join(x)
@@ -24,8 +23,7 @@ def test_get_filters_stock_feed_pm(representation, stock_min, stock_max):
                                                             "slice": {"offset": 0, "limit": 25},
                                                                 "pipelineId": get_id_pipeline(),
                                                                 "filters": {
-                                                                "stockMin": stock_min,
-                                                                "stockMax": stock_max
+                                                                "images": images
                                                                 },
                                                                 "representation": representation
                                                             },
@@ -35,22 +33,22 @@ def test_get_filters_stock_feed_pm(representation, stock_min, stock_max):
     items_product = response_body['data']['products']['items']
 
     if representation == 'FEED':
-        get_check_filters_min_max(items_product, 'stock', stock_min, stock_max, 'на странице "Product feed"')
+        get_check_filters_value_with_checkvalue(items_product, 'images', images, None, 'на странице "Product feed"')
     elif representation == 'WILDBERRIES':
-        get_check_filters_min_max(items_product, 'stock', stock_min, stock_max,
-                                  'на странице "Published on marketplace"')
+        get_check_filters_value_with_checkvalue(items_product, 'images', images, None,
+                                                'на странице "Published on marketplace"')
 
 
 # Для фильтров "Price & Stock rules" / "Business policy"
 @allure.epic('Тест стенд v.'+get_app_version())
 @allure.feature('Фильтры')
-@allure.story('Фильтр по "Stock')
-@allure.title('Stock')
+@allure.story('Фильтр по "Image"')
+@allure.title('Image')
 @allure.severity('critical')
-@pytest.mark.parametrize("stock_min, stock_max", [(2, 2), (None, 2), (2, None)])
+@pytest.mark.parametrize("images", ["true", "false"])
 @pytest.mark.parametrize("marketplace", ["WILDBERRIES"])
 @pytest.mark.parametrize("rule_policy", ["priceStockRuleProducts", "businessPolicyProducts"])
-def test_get_filters_stock_rule_policy(rule_policy, marketplace, stock_min, stock_max):
+def test_get_filters_image_rule_policy(rule_policy, marketplace, images):
 
     x = open(os.path.join(r"query", "query " + rule_policy + ".txt"))
     body = ''.join(x)
@@ -63,8 +61,7 @@ def test_get_filters_stock_rule_policy(rule_policy, marketplace, stock_min, stoc
                                                             "slice": {"offset": 0, "limit": 25},
                                                                 "pipelineId": get_id_pipeline(),
                                                                 "filters": {
-                                                                "stockMin": stock_min,
-                                                                "stockMax": stock_max
+                                                                "images": images
                                                                 },
                                                                 "marketplace": marketplace
                                                             },
@@ -73,4 +70,4 @@ def test_get_filters_stock_rule_policy(rule_policy, marketplace, stock_min, stoc
 
     items_product = response_body['data'][rule_policy]['items']
 
-    get_check_filters_min_max(items_product, 'stock', stock_min, stock_max, 'на странице ' + rule_policy)
+    get_check_filters_value_with_checkvalue(items_product, 'images', images, None, 'на странице ' + rule_policy)
