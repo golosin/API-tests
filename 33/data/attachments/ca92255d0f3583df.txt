@@ -1,0 +1,15 @@
+
+Тестовые данные: salePrice
+min = 100 , max = 100
+Результат по фильтру: на странице "Product feed"
+1 salePrice = 100.0
+2 salePrice = 100.0
+3 salePrice = 100.0
+4 salePrice = 100.0
+5 salePrice = 100.0
+6 salePrice = 100.0
+7 salePrice = 100.0
+8 salePrice = 100.0
+9 salePrice = 100.0
+10 salePrice = 100.0
+11 salePrice = 100.0
