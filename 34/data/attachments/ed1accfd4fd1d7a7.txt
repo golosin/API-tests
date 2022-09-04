@@ -1,0 +1,7 @@
+
+Тестовые данные: stock
+min = 2 , max = None
+Результат по фильтру: на странице priceStockRuleProducts
+1 stock = 2
+2 stock = 3
+3 stock = 2
