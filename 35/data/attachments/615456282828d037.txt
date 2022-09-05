@@ -1,0 +1,22 @@
+
+Тестовые данные: salePrice
+min = None , max = 100
+Результат по фильтру: на странице priceStockRuleProducts
+1 salePrice = 100.0
+2 salePrice = 100.0
+3 salePrice = 0.0
+4 salePrice = 100.0
+5 salePrice = 100.0
+6 salePrice = 0.0
+7 salePrice = 0.0
+8 salePrice = 0.0
+9 salePrice = 100.0
+10 salePrice = 100.0
+11 salePrice = 0.0
+12 salePrice = 100.0
+13 salePrice = 100.0
+14 salePrice = 100.0
+15 salePrice = 0.0
+16 salePrice = 100.0
+17 salePrice = 0.0 
+18 salePrice = 100.0
