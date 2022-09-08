@@ -32,7 +32,7 @@ def test_get_filters_price_feed_pm(representation, sale_price_min, sale_price_ma
     response_body = response.json()
 
     items_product = response_body['data']['products']['items']
-
+    assert items_product != [], 'список товаров не должен быть пустым'
     if representation == 'FEED':
         get_check_filters_min_max(items_product, 'salePrice', sale_price_min, sale_price_max,
                                   'на странице "Product feed"')
@@ -72,5 +72,5 @@ def test_get_filters_price_rule_policy(rule_policy, marketplace, sale_price_min,
     response_body = response.json()
 
     items_product = response_body['data'][rule_policy]['items']
-
+    assert items_product != [], 'список товаров не должен быть пустым'
     get_check_filters_min_max(items_product, 'salePrice', sale_price_min, sale_price_max, 'на странице ' + rule_policy)

@@ -31,7 +31,7 @@ def test_get_filters_image_feed_pm(representation, images):
     response_body = response.json()
 
     items_product = response_body['data']['products']['items']
-
+    assert items_product != [], 'список товаров не должен быть пустым'
     if representation == 'FEED':
         get_check_filters_value_with_checkvalue(items_product, 'images', images, None, 'на странице "Product feed"')
     elif representation == 'WILDBERRIES':
@@ -69,5 +69,5 @@ def test_get_filters_image_rule_policy(rule_policy, marketplace, images):
     response_body = response.json()
 
     items_product = response_body['data'][rule_policy]['items']
-
+    assert items_product != [], 'список товаров не должен быть пустым'
     get_check_filters_value_with_checkvalue(items_product, 'images', images, None, 'на странице ' + rule_policy)

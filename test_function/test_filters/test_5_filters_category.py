@@ -9,7 +9,7 @@ import allure
 @allure.title('Brand')
 @allure.severity('critical')
 @pytest.mark.parametrize("representation", ["FEED", "WILDBERRIES"])
-def test_get_filters_brand_feed_pm(representation):
+def test_get_filters_category_feed_pm(representation):
 
     x = open(os.path.join(r"query", "query products.txt"))
     body = ''.join(x)
@@ -26,9 +26,11 @@ def test_get_filters_brand_feed_pm(representation):
                                                          'query': body})
     response_body = response.json()
     if representation == 'FEED':
-        token_brand = response_body['data']['products']['pageInfo']['filters'][15]['widget']['attrs'][0]['value']
+        token_category = response_body['data']['products']['pageInfo']['filters'][16]['widget']['attrs'][1]['value']
     elif representation == 'WILDBERRIES':
-        token_brand = response_body['data']['products']['pageInfo']['filters'][18]['widget']['attrs'][0]['value']
+        token_category = response_body['data']['products']['pageInfo']['filters'][17]['widget']['attrs'][1]['value']
+
+
 
 
     x = open(os.path.join(r"query", "query DictionaryOptionsQuery.txt"))
@@ -37,15 +39,34 @@ def test_get_filters_brand_feed_pm(representation):
     headers = {"Content-Type": "application/json; charset=utf-8",
                "authorization": "JWT " + get_singIn()}
     url = get_url()
+    value_category = None
     response = requests.post(url, headers=headers, json={'operationName': "DictionaryOptionsQuery",
                                                          'variables': {
                                                              "slice": {"offset": 0, "limit": 25},
                                                              "pipelineId": get_id_pipeline(),
-                                                             "token": token_brand
+                                                             "params": {"parentId": value_category},
+                                                             "token": token_category
                                                          },
                                                          'query': body})
     response_body = response.json()
-    brand = response_body['data']['dictionaryOptions'][0]['value']
+    value_category = response_body['data']['dictionaryOptions'][0]['value']
+
+
+
+
+    while response_body['data']['dictionaryOptions'] != []:
+        response = requests.post(url, headers=headers, json={'operationName': "DictionaryOptionsQuery",
+                                                             'variables': {
+                                                                 "slice": {"offset": 0, "limit": 25},
+                                                                 "pipelineId": get_id_pipeline(),
+                                                                 "params": {"parentId": value_category},
+                                                                 "token": token_category
+                                                             },
+                                                             'query': body})
+        response_body = response.json()
+        if response_body['data']['dictionaryOptions'] != []:
+            value_category = response_body['data']['dictionaryOptions'][0]['value']
+            label_category = response_body['data']['dictionaryOptions'][0]['label']
 
 
 
@@ -60,7 +81,7 @@ def test_get_filters_brand_feed_pm(representation):
                                                              "slice": {"offset": 0, "limit": 25},
                                                              "pipelineId": get_id_pipeline(),
                                                              "filters": {
-                                                                 "brand": brand
+                                                                 "category": [value_category]
                                                              },
                                                              "representation": representation
                                                          },
@@ -69,9 +90,9 @@ def test_get_filters_brand_feed_pm(representation):
     items_product = response_body['data']['products']['items']
 
     if representation == 'FEED':
-        get_check_filters_value_with_checkvalue(items_product, 'brand', brand, brand, 'на странице "Product feed"')
+        get_check_filters_value_with_checkvalue(items_product, 'category', label_category, label_category, 'на странице "Product feed"')
     elif representation == 'WILDBERRIES':
-        get_check_filters_value_with_checkvalue(items_product, 'brand', brand, brand,
+        get_check_filters_value_with_checkvalue(items_product, 'category', label_category, label_category,
                                                 'на странице "Published on marketplace"')
 
 
