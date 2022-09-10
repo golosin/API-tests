@@ -1,5 +1,5 @@
 import pytest
-from tools_function.tools import *
+import tools_function.tools  
 import allure
 
 # Для фильтров "Feed Products" и "Published on marketplace"

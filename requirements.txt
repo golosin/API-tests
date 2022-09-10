@@ -1,5 +1,6 @@
-pytest
+pypiptest
 allure-python-commons
 allure-pytest
 requests
 async-generator
+pytest
