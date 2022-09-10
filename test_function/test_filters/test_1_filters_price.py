@@ -1,6 +1,7 @@
 import pytest
-import tools_function.tools  
+from tools_function.tools import *
 import allure
+
 
 # Для фильтров "Feed Products" и "Published on marketplace"
 @allure.epic('Тест стенд v.'+get_app_version())
@@ -11,6 +12,7 @@ import allure
 @pytest.mark.parametrize("sale_price_min, sale_price_max", [(100, 100), (None, 100), (100, None)])
 @pytest.mark.parametrize("representation", ["FEED", "WILDBERRIES"])
 def test_get_filters_price_feed_pm(representation, sale_price_min, sale_price_max):
+
 
     x = open(os.path.join(r"query", "query products.txt"))
     body = ''.join(x)
