@@ -3,7 +3,6 @@ from tools_function.tools import *
 import allure
 
 
-# 
 # Для фильтров "Feed Products" и "Published on marketplace"
 @allure.epic('Тест стенд v.'+get_app_version())
 @allure.feature('Фильтры')
