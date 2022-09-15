@@ -1,7 +1,0 @@
-
-Тестовые данные: stock
-min = 2 , max = None
-Результат по фильтру: на странице "Product feed"
-1 stock = 2
-2 stock = 2
-3 stock = 2
