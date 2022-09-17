@@ -1,8 +1,0 @@
-
-Тестовые данные: brand
-brand = ACEFAST
-Результат по фильтру: на странице "Product feed"
-1 brand = ACEFAST
-2 brand = ACEFAST
-3 brand = ACEFAST
-4 brand = ACEFAST

@@ -1,6 +1,0 @@
-
-Тестовые данные: stock
-min = 2 , max = 2
-Результат по фильтру: на странице "Published on marketplace"
-1 stock = 2
-2 stock = 2
